@@ -11,7 +11,7 @@ def compile_extension(file_name, cpp_fn_signature, cpp_fn_name):
     cuda_source = Path(file_name).read_text()
 
     # Load the CUDA kernel as a PyTorch extension
-    fn = load_inline(
+    ext = load_inline(
         name=file_name.split(".")[0],
         cpp_sources=cpp_fn_signature,
         cuda_sources=cuda_source,
@@ -20,5 +20,5 @@ def compile_extension(file_name, cpp_fn_signature, cpp_fn_name):
         extra_cuda_cflags=["-O2"],
         # build_directory='./cuda_build',
     )
-    return fn
+    return ext
 
