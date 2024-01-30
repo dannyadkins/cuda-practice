@@ -1,6 +1,5 @@
 import sys
 from pathlib import Path
-sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 import torch
 from torchvision.io import read_image, write_png
@@ -33,7 +32,7 @@ def main():
     """
     ext = compile_extension(file_name="kernel.cu", cpp_fn_signature="torch::Tensor rgb_to_grayscale(torch::Tensor input);", cpp_fn_name="rgb_to_grayscale")
 
-    x = read_image("Grace_Hopper.jpg").permute(1, 2, 0).cuda()
+    x = read_image("img.jpg").permute(1, 2, 0).cuda()
     print("mean:", x.float().mean())
     print("Input image:", x.shape, x.dtype)
 
