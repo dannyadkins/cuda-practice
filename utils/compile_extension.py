@@ -15,7 +15,7 @@ def compile_extension(file_name, cpp_fn_signature, cpp_fn_name):
         name=file_name.split(".")[0],
         cpp_sources=cpp_fn_signature,
         cuda_sources=cuda_source,
-        functions=["cpp_fn_name"],
+        functions=[cpp_fn_name],
         with_cuda=True,
         extra_cuda_cflags=["-O2"],
         # build_directory='./cuda_build',
