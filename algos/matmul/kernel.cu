@@ -1,7 +1,9 @@
 #include <c10/cuda/CUDAException.h>
 #include <c10/cuda/CUDAStream.h>
+#include <iostream>
 
 torch::Tensor matmul(torch::Tensor a, torch::Tensor b) {
+    std::cout << "Tensor a is is on: " << a.device() 
     assert(a.device().type() == torch::kCUDA);
     assert(b.device().type() == torch::kCUDA);
     assert(a.dtype() == torch::kByte);
